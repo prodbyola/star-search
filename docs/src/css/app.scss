@@ -1,0 +1,62 @@
+// app global css in SCSS form
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap');
+
+body {
+    background-color: $accent;
+    h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 2.813rem;
+    }
+    
+    p {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 1.125rem;
+    }
+
+    .page-title {
+        color: $secondary;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .api-detail {
+        .ad-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        .ad-resp-indent {
+            margin-left: 24px;
+            .sig {
+                margin-top: 16px;
+                .resp-sig {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+code {
+    background-color: rgb(219, 219, 219);
+    padding: 0 4px;
+}
+
+code.light {
+    font-weight: normal;
+}
+p {
+    margin: 4px 0;
+    line-height: 1.4;
+}
+.adr-head {
+    margin-top: 28px;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+.doc-card {
+    width: 90%;
+    padding: 16px;
+    
+}
