@@ -2,39 +2,15 @@
 
 StarSearch is a simple set of API endpoints to demonstrate Golang's strength in RESTful API development. It fetches data from [Swapi API](https://swapi.dev/), transforms and send them as a ```Response``` to different endpoints.
 
-## Install the dependencies
+## Installation
 ```bash
-yarn
-# or
-npm install
+sh install.sh
 ```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
 
 
 ### Build the app for production
 ```bash
-quasar build
+sh build.sh
 ```
 
 ### Customize the configuration
