@@ -1,5 +1,12 @@
-FROM golang:latest
-RUN go get -u github.com/cosmtrek/air
-go mod download
 WORKDIR /app
-ENTRYPOINT ["air"]
+
+COPY go.mod ./
+RUN go mod download
+
+COPY *.go ./
+
+RUN go build -o /starsearch
+
+EXPOSE 8000
+
+CMD [ "/starsearch" ]
