@@ -1,6 +1,6 @@
 # StarSearch
 
-StarSearch is a simple set of API endpoints to demonstrate Golang's strength in RESTful API development. It fetches data from [Swapi API](https://swapi.dev/), transforms and send them as a ```Response``` to different endpoints.
+StarSearch is a simple set of API endpoints to demonstrate Golang's strength in RESTful API development. It fetches data from [Swapi API](https://swapi.dev/), transforms and send them as a ```Response``` to different endpoints. See [demo and documentation](https://marvelous-florentine-950c63.netlify.app/#/)
 
 ## Installation
 
@@ -10,7 +10,7 @@ StarSearch is a simple set of API endpoints to demonstrate Golang's strength in 
 * [Redis 7](https://redis.io/docs/getting-started/installation)
 
 #### For Linux users
-To enable hot reload, install (air)[https://github.com/cosmtrek/air]: ```sh install.sh air```.  
+To enable hot reload, install [air](https://github.com/cosmtrek/air): ```sh install.sh air```.  
 To install the demo and documentation ```sh install.sh docs```.
 
 #### Using Docker
@@ -26,7 +26,7 @@ sh serve.sh app
 ```bash
 cd app && go run main.go
 ```
-If you installed (air)[https://github.com/cosmtrek/air], then you can do
+If you installed [air](https://github.com/cosmtrek/air), then you can do
 ```bash
 cd app && air
 ```
