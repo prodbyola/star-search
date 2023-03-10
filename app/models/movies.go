@@ -16,7 +16,7 @@ type MovieData struct {
 	Crawl        string `json:"opening_crawl"`
 	Name         string `json:"name"`
 	CommentCount int64  `json:"comment_count"`
-	ReleasedOn   time.Time
+	// ReleasedOn   time.Time
 }
 
 type MovieModel struct {

@@ -4,4 +4,5 @@ export type ApiResponse = {
     message: unknown
 }
 
-export const apiBase = 'http://localhost:8000'
+// export const apiBase = 'http://localhost:8080'
+export const apiBase = 'https://sss.airtnd.com'

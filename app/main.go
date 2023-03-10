@@ -23,5 +23,5 @@ func main() {
 	DB := db.Connect()
 	RDS := redis.Connect()
 	ctrl.RegisterRoutes(router, DB, RDS)
-	router.Run(":8000")
+	router.Run(":8080")
 }

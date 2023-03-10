@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"errors"
+	"fmt"
 
 	cache "starsearch/common/redis"
 	"starsearch/common/response"
@@ -13,26 +14,29 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
+// loads the app's movies
 func (h *handler) GetMovies(c *gin.Context) {
 	resp := response.New()
 	cache_key := "star_movies"
 
-	// cache.ClearData(h.RDS, cache_key)
 	// get movie list from redis cache...
 	movies, err := cache.GetData[models.MovieModel](h.RDS, cache_key)
+	// err = cache.ClearData(h.RDS, cache_key)
 	if err != nil {
+		fmt.Print("Cache error ", err)
 		// ... if movie list is not found in cache, get it from swapi and add it to cache
 		if errors.Is(redis.ErrNil, err) {
+			fmt.Print("Not in cache")
 			if movies, ids, err := swapi.GetMovies(h.RDS); err == nil {
 				err = cache.SetData(h.RDS, cache_key, movies)
 				err = cache.SetData(h.RDS, models.MovieIdKey, ids)
-			}
-		}
 
-		if err != nil {
-			resp.SetError(500, err)
-			c.JSON(200, resp)
-			return
+				if err != nil {
+					resp.SetError(500, err)
+					c.JSON(200, resp)
+					return
+				}
+			}
 		}
 	}
 
@@ -49,6 +53,7 @@ func (h *handler) GetMovies(c *gin.Context) {
 	c.JSON(200, resp)
 }
 
+// loads characters of a movie by a given parameter 'movie_id'.
 func (h *handler) GetCharacters(c *gin.Context) {
 	movie := c.Param("movie_id") // validate movie id
 	resp := response.New()

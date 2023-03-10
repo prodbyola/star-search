@@ -10,7 +10,7 @@ import (
 )
 
 type CommentRequest struct {
-	Movie   int64  `json:"movie" binding:"required"`
+	Movie   int64  `json:"movie_id" binding:"required"`
 	Content string `json:"content" binding:"required"`
 }
 

@@ -1,0 +1,15 @@
+body.screen--sm {
+    .comment-form {
+        width: 100%;
+    }
+}
+
+body.screen--xs {
+    .comment-form, .cf-action, .cm-head {
+        width: 100% !important;
+    }
+    
+    .cmc {
+        margin-left: 0 !important;
+    }
+}

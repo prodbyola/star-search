@@ -8,6 +8,8 @@ import (
 )
 
 func Connect() redis.Conn {
+	// host := os.Getenv("REDIS_HOST")
+	// port := os.Getenv("REDIS_HOST")
 	rds, err := redis.Dial("tcp", ":6379")
 	if err != nil {
 		log.Fatal(err)
@@ -36,5 +38,6 @@ func SetData(RDS redis.Conn, key string, data any) error {
 
 func ClearData(RDS redis.Conn, data_key string) error {
 	_, err := RDS.Do("GETDEL", data_key)
+	// fmt.Printf("error %s", err)
 	return err
 }

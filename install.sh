@@ -16,7 +16,16 @@ elif [ "$1" = "air" ]; then
 
     air -v
 
+elif [ "$1" = "docs" ]; then
+    cd docs
+    yarn install
+
+elif [ "$1" = "all" ]; then
+    sh install.sh db
+    sh install.sh air
+    sh install.sh docs
+
 else
-    echo "What do you wish to install? db | air";
+    echo "What do you wish to install? db | air | docs | all";
 
 fi

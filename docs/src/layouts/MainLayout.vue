@@ -11,7 +11,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title class="app-title" @click="goHome">
+        <q-toolbar-title class="app-title" @click="goTo('home')">
           StarSearch
         </q-toolbar-title>
 
@@ -25,11 +25,32 @@
       bordered
     >
       <q-list>
-        <q-item-label
-          header
-        >
-          Nav Here
-        </q-item-label>
+        <q-item @click="goTo('home')" clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="home" />
+          </q-item-section>
+          <q-item-section>
+            Home
+          </q-item-section>
+        </q-item>
+        <q-item @click="goTo('movie-list')" clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="phone_android" />
+          </q-item-section>
+          <q-item-section>
+            Demo App
+          </q-item-section>
+        </q-item>
+        <q-separator />
+        <q-item @click="goTo('docs')" clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="receipt_long" />
+          </q-item-section>
+          <q-item-section>
+            Documentation
+          </q-item-section>
+        </q-item>
+        <q-separator />
 
         
       </q-list>
@@ -46,7 +67,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
-const goHome = () => router.push('/')
+const goTo = (name: string) => router.push({ name })
 const leftDrawerOpen = ref(false)
 
 function toggleLeftDrawer() {

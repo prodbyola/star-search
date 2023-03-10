@@ -7,9 +7,9 @@
           fetching data from <a href="https://swapi.dev" target="_blank">Swapi API</a>, transforms and send them as a <code>Response</code> to different endpoints.</p>
       </div>
       <div class="welcome-actions">
-        <q-btn class="wa-btn" label="Demo App" icon="phone_android" @click="goTo('movie-list')" flat no-caps />
-        <q-btn class="wa-btn" label="API Demo" icon="code" flat no-caps />
         <q-btn class="wa-btn" label="Documentations" icon="receipt_long" @click="goTo('docs')"  flat no-caps />
+        <q-btn class="wa-btn" label="Demo App" icon="phone_android" @click="goTo('movie-list')" flat no-caps />
+        <!-- <q-btn class="wa-btn" label="API Demo" icon="code" flat no-caps /> -->
       </div>
     </div>
   </q-page>
