@@ -4,18 +4,20 @@
         
         <q-dialog v-model="sorters.open">
             <q-card class="sort-card">
-                <h3>Search Characters</h3>
+                <h3>Sort & Filter</h3>
                 <div class="sorters">
                     <q-select v-model="sorters.sort" :options="sortKeys" label="Sort By" outlined class="sf" />
                     <q-select v-model="sorters.order" :options="sortOrderKeys" label="Order By" class="sf" outlined />
                     <q-select v-model="sorters.filter" :options="filterKeys" label="Filter By" class="sf" outlined />
-                    <q-btn label="Search" icon="search" class="sa" @click="search" flat v-close-popup />
+                    <q-btn label="Sort & Filter" icon="search" class="sa" @click="search" flat v-close-popup />
                 </div>
             </q-card>
         </q-dialog>
+        <q-spinner class="spinner" v-if="mounting" />
+
         <q-card v-if="results" class="doc-card">
             <div class="meta">
-                <q-btn label="Search" icon="search" class="search-btn" @click="sorters.open = !sorters.open" flat />
+                <q-btn label="Sort & Filter" icon="search" class="search-btn" @click="sorters.open = !sorters.open" flat />
                 <p>Total Count: {{ results.total_character_count }}</p>
                 <p>Total Height: {{ results.total_character_height.ft }}</p>
             </div>
@@ -60,6 +62,7 @@ const sorters = reactive({
 })
 
 const loading = ref(false)
+const mounting = ref(true)
 const columns: QTableColumn[] = [
     {
         name: 'name',
@@ -99,17 +102,18 @@ const search = () => {
     getResults(query)
 }
 
-const getResults = (url: string) => {
+const getResults = async(url: string) => {
     loading.value = true
-    api.get(url)
+    await api.get(url)
     .then(r => {
         const resp = r.data as ApiResponse
         if(!resp.error) results.value = resp.message as QueryResult
         loading.value = false
     })
 }
-onMounted(() => {
-    getResults(baseUrl)
+onMounted(async() => {
+    await getResults(baseUrl)
+    mounting.value = false
 })
 </script>
 <style lang="scss" scoped>

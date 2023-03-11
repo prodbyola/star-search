@@ -57,6 +57,18 @@ func (c Character) GreaterThan(r *Character) bool {
 	left_sk := c.SortKey.Str()
 	left_sort_value := left_data[left_sk].(string)
 
+	// when comparing heights, we need to convert values to int64
+	if r.SortKey == Height {
+		rv, err := strconv.ParseInt(right_sort_value, 10, 64)
+		lv, err := strconv.ParseInt(left_sort_value, 10, 64)
+
+		if err != nil {
+			return false
+		}
+
+		return lv > rv
+	}
+
 	return left_sort_value > right_sort_value
 }
 

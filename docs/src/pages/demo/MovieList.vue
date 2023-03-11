@@ -47,9 +47,6 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.spinner {
-    font-size: 200px;
-}
 .movie-list {
     display: flex;
     flex-wrap: wrap;
